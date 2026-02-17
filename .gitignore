@@ -5,6 +5,8 @@
 
 # Выходные файлы (результаты работы программы)
 output.txt
+test_input.txt
+test_output.txt
 
 # Python
 __pycache__/

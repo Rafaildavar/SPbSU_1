@@ -69,7 +69,9 @@
 .
 ├── count_unique_ipv6.py    # Основная программа
 ├── ipv6_normalizer.py      # Модуль нормализации IPv6 адресов
-├── generate_test_data.py   # Генератор тестовых данных
+├── generate_test_data.py   # Вспомогательный генератор тестовых данных
+├── task-1/
+│   └── generate_data.py    # Генератор данных из задания
 ├── input.txt               # Пример входного файла
 ├── output.txt              # Результат работы программы
 └── README.md               # Данный файл
@@ -90,6 +92,16 @@ python3 count_unique_ipv6.py input.txt output.txt
 
 ### Генератор тестовых данных
 
+**Генератор из задания (task-1/generate_data.py):**
+```bash
+# Генерация файла с заданным количеством уникальных адресов и общим количеством строк
+python3 task-1/generate_data.py output_file.txt num_unique total_size [--seed SEED]
+
+# Пример: 10 уникальных адресов, 50 строк всего
+python3 task-1/generate_data.py test_input.txt 10 50 --seed 42
+```
+
+**Вспомогательный генератор (generate_test_data.py):**
 ```bash
 # Генерация примера из условия задачи
 python3 generate_test_data.py example
@@ -102,6 +114,19 @@ python3 generate_test_data.py test_input.txt 1000000
 
 ```bash
 python3 ipv6_normalizer.py
+```
+
+### Тестирование с генератором из задания
+
+```bash
+# Генерируем тестовый файл: 10 уникальных адресов, 50 строк всего
+python3 task-1/generate_data.py test_input.txt 10 50 --seed 42
+
+# Запускаем программу подсчета
+python3 count_unique_ipv6.py test_input.txt test_output.txt
+
+# Проверяем результат (должно быть 10)
+cat test_output.txt
 ```
 
 ## Пример работы
